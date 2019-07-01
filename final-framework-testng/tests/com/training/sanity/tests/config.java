@@ -11,10 +11,14 @@ import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
 import com.training.pom.AdminPOM;
+import com.training.pom.BlogPOM;
 import com.training.pom.LoginPOM;
 import com.training.pom.Lost_password;
+import com.training.pom.New_Launches_tiltePOM;
+import com.training.pom.Post_NewPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
+
 
 public class config {
 	
@@ -23,6 +27,9 @@ public class config {
 	public LoginPOM loginPOM;
 	public AdminPOM adminPOM;//my own code
 	public Lost_password lpwd;
+	public BlogPOM blogPOM;
+	public New_Launches_tiltePOM  commentPOM;
+	public Post_NewPOM postPOM;
 	public static Properties properties;
 	public ScreenShot screenShot;
 	
@@ -39,6 +46,9 @@ public class config {
 		loginPOM = new LoginPOM(driver); 
 		adminPOM = new AdminPOM(driver); //my own code 
 		lpwd=new Lost_password(driver);
+		blogPOM=new BlogPOM(driver);
+		commentPOM=new New_Launches_tiltePOM(driver);
+		
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 

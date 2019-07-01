@@ -46,7 +46,10 @@ public class LoginPOM {
 
 	@FindBy(xpath="//a[text()=' Lost Your Password?']")
 	private WebElement changepwd; 
-		
+	
+	
+	@FindBy(xpath="//li[@id='menu-item-617']/a[text()='Blog']")
+	private WebElement bloglink;
 	
 	
 	public void mLogInClick() {  //my own defined LOGIN/REGISTER CLICK method
@@ -66,6 +69,10 @@ public class LoginPOM {
 	
 	public void clickLoginBtn() {
 		this.loginBtn.click(); 
+	}
+	
+	public void clcikbloglink() {
+		this.bloglink.click(); 
 	}
 	
 	

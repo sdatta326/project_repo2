@@ -66,6 +66,7 @@ public class RETC_012 {
 		//loginPOM.sendPassword("admin@123");
 		//loginPOM.sendPassword("manzoorupdated");
 		//loginPOM.clickLoginBtn(); 
+		
 		Thread.sleep(8000);
 		loginPOM.changePWD();
 		Thread.sleep(8000);
@@ -73,10 +74,22 @@ public class RETC_012 {
 		lpwd.reset_password();
 		//submit
 		screenShot.captureScreenShot("Test_RETC_012");
-		String expected="A confirmation link has been sent to your email address";
-		String actual=lpwd.password_message();
-		Assert.assertEquals(actual, expected);
-
+	
+		//try
+		//{
+			String expected="A confirmation link has been sent to your email address";
+			String actual=lpwd.password_message();
+			Assert.assertEquals(actual, expected,"validation failed without try catch");
+		//}
+		/*catch(Exception e)
+		{
+			System.out.println("validation failed with exception");
+		}
+		*/
+		
+		
+		
+		}
 		
 	}
-}
+
