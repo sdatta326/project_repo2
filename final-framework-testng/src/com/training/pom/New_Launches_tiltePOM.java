@@ -60,9 +60,9 @@ private WebDriver driver;
 		/*JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,300)");*/
 		this.commentv.click();
-		this.commentv.sendKeys("GOOD ONE test123");
-		this.cname.sendKeys("Nabina test123");
-		this.cemail.sendKeys("Nabinatest123@gmail.com");
+		this.commentv.sendKeys("John title");
+		this.cname.sendKeys("John");
+		this.cemail.sendKeys("John48@gmail.com");
 		//Thread.sleep(3000);
 		this.subc.click();
 		//Thread.sleep(3000);
@@ -89,10 +89,18 @@ private WebDriver driver;
 	}
 	
 	public void mLogInClick() throws InterruptedException, AWTException {
-		Actions a=new Actions(driver);
+		
+		//WebElement link=driver.findElement(By.xpath("//a[@class='sign-in']"));
+        Actions action = new Actions(driver);
+        action.contextClick(this.mLOGINlink).build().perform();
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_DOWN);
+        robot.keyPress(KeyEvent.VK_DOWN);
+        robot.keyPress(KeyEvent.VK_ENTER);
+		//Actions a=new Actions(driver);
 		//a.contextClick(this.mLOGINlink).build().perform();
 		//Thread.sleep(4000);
-		this.mLOGINlink.sendKeys(Keys.chord(Keys.CONTROL, Keys.RETURN));
+		//this.mLOGINlink.sendKeys(Keys.chord(Keys.CONTROL, Keys.RETURN));
 		//a.contextClick(this.mLOGINlink).build().perform();
 		
 		Thread.sleep(4000);
@@ -118,5 +126,50 @@ private WebDriver driver;
 		System.out.println("register button click");
 		
 	}
+	
+	public void newWindow()
+	{
+		
+			
+		String MainWindow=driver.getWindowHandle();	
+        // To handle all new opened window.				
+            Set<String> s1=driver.getWindowHandles();		
+        Iterator<String> i1=s1.iterator();		
+        		
+        while(i1.hasNext())			
+        {		
+            String ChildWindow=i1.next();		
+            		
+            if(!MainWindow.equalsIgnoreCase(ChildWindow))			
+            {    		
+                 
+                    // Switching to Child window
+                    driver.switchTo().window(ChildWindow);	                                                                                                           
+                    /*driver.findElement(By.name("emailid"))
+                    .sendKeys("gaurav.3n@gmail.com");                			
+                    
+                    driver.findElement(By.name("btnLogin")).click();	*/		
+                                 
+			// Closing the Child Window.
+                       // driver.close();		
+            }		
+        }		
+        // Switching to Parent window i.e Main Window.
+            //driver.switchTo().window(MainWindow);
+	}
+	
+	/*public void closechildwindow() throws InterruptedException
+	{
+		// Closing the Child Window.
+       driver.close();
+     // Switching to Parent window i.e Main Window.
+        //this.driver=driver;
+        String MainWindow=driver.getWindowHandle();	
+        Thread.sleep(3000);
+        driver.switchTo().window(MainWindow);
+        //driver.close();
+	}*/
+	
+	
 	
 }

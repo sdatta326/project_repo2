@@ -41,6 +41,7 @@ public class config {
 	}
 
 	@BeforeMethod
+	//@Test
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver); 

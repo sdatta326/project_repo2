@@ -3,12 +3,14 @@ package com.training.pom;
 
 import java.util.concurrent.TimeUnit;//my own code
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class AdminPOM {
 private WebDriver driver; 
@@ -59,7 +61,8 @@ private WebDriver driver;
 	
 
 	@FindBy(xpath="//li[@id='menu-posts']/ul/li[3]/a")
-	private WebElement newpostv;
+	private WebElement newpostv2
+	;
 	
 	@FindBy(xpath="//input[@id='title']")//new title
 	private WebElement posttitlev;
@@ -77,11 +80,82 @@ private WebDriver driver;
 
 	@FindBy(xpath="//div[@id='message']/p/a")
 	private WebElement viewmsg;
+	
+	
+	
+	@FindBy(xpath="//div[@class='wp-menu-image dashicons-before dashicons-admin-multisite']")
+	private WebElement propertyclv;
+	
+	@FindBy(xpath="	//a[text()='Regions']")
+	private WebElement regionclv;
+	
+	
+	@FindBy(xpath="//input[@id='tag-name']")
+	private WebElement regionnamev;
+	
+
+	
+	@FindBy(xpath="//input[@id='tag-slug']")
+	private WebElement 	tag_slugv;
+	
+
+	
+	
+	@FindBy(xpath="//select[@id='parent']")
+	private WebElement 	selectv;
+	
+	
+	@FindBy(xpath="//textarea[@id='tag-description']")
+	private WebElement 	textdescv;
+	
+	
+	
+	
+	@FindBy(xpath="//input[@id='submit']")
+	private WebElement 	addregionclv;
+	
+	
+	
+	
+
+	@FindBy(xpath="//li[@id='menu-posts-property']/ul/li[3]/a")
+	private WebElement 	addnewv;
+	
+	
+	
+	
+	
+
+	@FindBy(xpath="//input[@name='post_title']")
+	private WebElement 	postv;
+	
+	@FindBy(xpath="//textarea[@id='content']//input[@name='post_title']")
+	private WebElement 	titlev;
+	
+	
+	
+	
+	
+	@FindBy(xpath="//li[@id='region-408']/label/input")
+	private WebElement 	checkb1;
 
 	
 
+	@FindBy(xpath="//li[@id='region-408']/ul/li[3]/label/input")
+	private WebElement 	checkb2;
+	
 
 
+	//input[@id='publish']
+	
+	@FindBy(xpath="//input[@id='publish']")
+	private WebElement 	regionpub;
+	
+
+	
+	
+	@FindBy(xpath="//a[text()='View post']")
+	private WebElement 	viewrecl;
 
 
 	public void userclick()
@@ -113,12 +187,14 @@ private WebDriver driver;
 
 	public void addnewpostClick()//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
 	{
-		this.newpostv.click();
+		this.postv.click();
 	}
 
 
 
 
+	
+	
 
 	/*public void lastnameupdate(String lname) throws InterruptedException
 	{
@@ -172,14 +248,14 @@ private WebDriver driver;
 	public void addnewtitleClick()//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
 	{
 		this.posttitlev.click();
-		this.posttitlev.sendKeys("building description");//new title
+		this.posttitlev.sendKeys("John building description");//new title
 	}
 
 	public void textareaClick()//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
 	{
 		//this.posttitlev.click();
-		this.textareav.sendKeys("building details find here");
-		this.textareav.sendKeys("A building is best identified during preplanning, but there are distinct features that will help firefighters identify the building type as they pull up on scene. There are also several diagnostic techniques that ladder companies can use when they’re up close and personal with a building.");
+		this.textareav.sendKeys("John building details find here");
+		this.textareav.sendKeys("John A building is best identified during preplanning, but there are distinct features that will help firefighters identify the building type as they pull up on scene. There are also several diagnostic techniques that ladder companies can use when they’re up close and personal with a building.");
 	}
 	
 	public void publishClick() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
@@ -198,6 +274,167 @@ private WebDriver driver;
 		/*JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,100)");*/
 	}
+	
+	
+	public void propertyclickfun() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		//this.posttitlev.click();
+		this.propertyclv.click();
+		Thread.sleep(3000);
+		/*JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,100)");*/
+	}
+	
+	
+	
+	public void regionclickfun() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		//this.posttitlev.click();
+		this.regionclv.click();
+		Thread.sleep(3000);
+		/*JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,100)");*/
+		this.regionclv.click();
+	}
+	
+	
+	
+	public void regiontextfunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		//this.posttitlev.click();
+		this.regionnamev.sendKeys("region title of silk board");
+		Thread.sleep(3000);
+		/*JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,100)");*/
+		this.tag_slugv.sendKeys("slug text silk board");
+	}
+	
+	public void selectvfunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		//this.posttitlev.click();
+		Thread.sleep(3000);
+		/*JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,100)");*/
+		Select s=new Select(selectv);
+		//s.selectByIndex(12);
+		s.selectByVisibleText("Villas");
+		
+		
+	}
+	
+	public String regionreturn() {
+		return selectv.getAttribute("value");
+	}
+	
+	
 
+	public void textdescvfunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		//this.posttitlev.click();
+		Thread.sleep(3000);
+		/*JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,100)");*/
+		this.textdescv.sendKeys("full text description Villas");
+	}
+	
 
+	
+	
+	
+	public void addregionclvfunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		//this.posttitlev.click();
+		Thread.sleep(3000);
+		/*JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,100)");*/
+		this.addregionclv.click();
+		}
+	
+	
+	
+	public void addnewvfunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		//this.posttitlev.click();
+		Thread.sleep(3000);
+		/*JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,100)");*/
+		this.addnewv.click();
+		}
+	
+	
+	public void titlefunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		//this.posttitlev.click();
+		Thread.sleep(3000);
+		/*JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,100)");*/
+		this.posttitlev.sendKeys("title next Villas");
+		}
+	
+
+	
+	
+	public void textareafunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		//this.posttitlev.click();
+		Thread.sleep(3000);
+		/*JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,100)");*/
+		this.textareav.sendKeys("hello bangalore textarea for next Villas");
+		}
+	
+
+	
+	
+	
+	
+	public void checkboxfunc1() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		String regionxpathbefore="//*[contains(text(),' ";
+		String regionxpathafter="')]//input";
+		String regionxpath=regionxpathbefore+regionreturn()+regionxpathafter;
+		
+		//this.posttitlev.click();
+		Thread.sleep(6000);
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,300)");
+		/*JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,300)");*/
+		//this.checkb1.click();
+		driver.findElement(By.xpath(regionxpath)).click();
+		
+		}
+	
+	public void checkboxfunc2() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		//this.posttitlev.click();
+		Thread.sleep(6000);
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,300)");
+		this.checkb2.click();
+		}
+	
+	
+	
+	public void regionpublishfunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		//this.posttitlev.click();
+		Thread.sleep(6000);
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,-4000)");
+		this.regionpub.click();
+		}
+	
+	
+	
+	public void viewmsgfunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		//this.posttitlev.click();
+		Thread.sleep(3000);
+		/*JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,100)");*/
+		this.viewrecl.click();
+		}
+	
+	
 }
