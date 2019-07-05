@@ -16,7 +16,10 @@ public class RETC_41_copy extends config {
 
 	@Test
 	public void RETC_041() throws InterruptedException, AWTException {
-
+//implicit timeout value function call from here and create function in another page to apply it for all the below elements
+		//explicit wait function call from here and create that statement inside another function to wait for that particuler element only 
+		
+		//
 		loginPOM.clcikbloglink();
 		blogPOM.readMore();
 		commentPOM.commentb();

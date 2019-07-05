@@ -67,7 +67,10 @@ public class LoginPOM {
 		this.password.sendKeys(password); 
 	}
 	
+	
+	
 	public void clickLoginBtn() {
+	
 		this.loginBtn.click(); 
 	}
 	

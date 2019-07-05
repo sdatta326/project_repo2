@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="56421" started-at="2019-07-03T10:00:45Z" finished-at="2019-07-03T10:01:42Z">
+  <suite name="Default suite" duration-ms="66254" started-at="2019-07-05T10:32:14Z" finished-at="2019-07-05T10:33:20Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="56421" started-at="2019-07-03T10:00:45Z" finished-at="2019-07-03T10:01:42Z">
+    <test name="Default test" duration-ms="66254" started-at="2019-07-05T10:32:14Z" finished-at="2019-07-05T10:33:20Z">
       <class name="com.training.sanity.tests.RETC_041">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.RETC_041@3e6fa38a]" name="setUpBeforeClass" is-config="true" duration-ms="19" started-at="2019-07-03T10:00:45Z" finished-at="2019-07-03T10:00:45Z">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.RETC_041@3e6fa38a]" name="setUpBeforeClass" is-config="true" duration-ms="22" started-at="2019-07-05T10:32:14Z" finished-at="2019-07-05T10:32:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.RETC_041@3e6fa38a]" name="setUp" is-config="true" duration-ms="25954" started-at="2019-07-03T10:00:45Z" finished-at="2019-07-03T10:01:11Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.RETC_041@3e6fa38a]" name="setUp" is-config="true" duration-ms="31485" started-at="2019-07-05T10:32:14Z" finished-at="2019-07-05T10:32:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="RETC_041()[pri:0, instance:com.training.sanity.tests.RETC_041@3e6fa38a]" name="RETC_041" duration-ms="28508" started-at="2019-07-03T10:01:11Z" finished-at="2019-07-03T10:01:40Z">
+        <test-method status="PASS" signature="RETC_041()[pri:0, instance:com.training.sanity.tests.RETC_041@3e6fa38a]" name="RETC_041" duration-ms="32846" started-at="2019-07-05T10:32:45Z" finished-at="2019-07-05T10:33:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- RETC_041 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.RETC_041@3e6fa38a]" name="tearDown" is-config="true" duration-ms="1899" started-at="2019-07-03T10:01:40Z" finished-at="2019-07-03T10:01:42Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.RETC_041@3e6fa38a]" name="tearDown" is-config="true" duration-ms="1866" started-at="2019-07-05T10:33:18Z" finished-at="2019-07-05T10:33:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

@@ -61,8 +61,8 @@ private WebDriver driver;
 		js.executeScript("window.scrollBy(0,300)");*/
 		this.commentv.click();
 		this.commentv.sendKeys("John title");
-		this.cname.sendKeys("John");
-		this.cemail.sendKeys("John48@gmail.com");
+		this.cname.sendKeys("John26100");
+		this.cemail.sendKeys("John26100@gmail.com");
 		//Thread.sleep(3000);
 		this.subc.click();
 		//Thread.sleep(3000);

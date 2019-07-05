@@ -25,6 +25,8 @@ private WebDriver driver;
 
 	@FindBy(xpath="//a[text()='Your Profile']")
 	private WebElement profilev;
+	
+	
 
 	/*@FindBy(xpath="//button[text()='Generate Password']")
 	private WebElement  uppwd;
@@ -90,8 +92,12 @@ private WebDriver driver;
 	private WebElement regionclv;
 	
 	
+	//static String childRegion;
 	@FindBy(xpath="//input[@id='tag-name']")
-	private WebElement regionnamev;
+	private WebElement regionnamev;//child region
+	
+	
+	
 	
 
 	
@@ -100,9 +106,11 @@ private WebDriver driver;
 	
 
 	
-	
+	//static String parentRegion;//uncomment
 	@FindBy(xpath="//select[@id='parent']")
 	private WebElement 	selectv;
+	
+	
 	
 	
 	@FindBy(xpath="//textarea[@id='tag-description']")
@@ -156,6 +164,26 @@ private WebDriver driver;
 	
 	@FindBy(xpath="//a[text()='View post']")
 	private WebElement 	viewrecl;
+	
+	
+	@FindBy(xpath="//a[text()='Features']")
+	private WebElement featurenewv;
+	
+	
+	
+	@FindBy(xpath="//input[@id='tag-name']")//new title
+	private WebElement featuretagname;
+	
+	@FindBy(xpath="//input[@id='tag-slug']")//new title
+	private WebElement featureslug;
+	
+	@FindBy(xpath="//textarea[@id='tag-description']")//new title
+	private WebElement featurtextarea;
+	
+	@FindBy(xpath="//input[@value='Add New Feature']")//new title
+	private WebElement addfeaturesubmit;
+	
+	
 
 
 	public void userclick()
@@ -309,6 +337,10 @@ private WebDriver driver;
 		this.tag_slugv.sendKeys("slug text silk board");
 	}
 	
+	public String regiontitle() {
+		return this.regionnamev.getAttribute("value");
+	}
+	
 	public void selectvfunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
 	{
 		//this.posttitlev.click();
@@ -317,15 +349,29 @@ private WebDriver driver;
 		js.executeScript("window.scrollBy(0,100)");*/
 		Select s=new Select(selectv);
 		//s.selectByIndex(12);
-		s.selectByVisibleText("Villas");
-		
+		s.selectByVisibleText("Commercial");
+		//String parentRegion=s.getFirstSelectedOption().getText();//uncomment
+		//return parentRegion;
 		
 	}
 	
-	public String regionreturn() {
+	public String parentRegion() {
+		Select s=new Select(selectv);
+		//s.selectByIndex(12);
+		String region= s.getFirstSelectedOption().getText();
+		String regionxpathbefore="//label[text()=' ";
+		String regionxpathafter="']";
+		
+		String regionxpath=regionxpathbefore+region+regionxpathafter;//uncomment
+		System.out.println(regionxpath);//uncomment
+		return regionxpath;
+	}
+	
+	/*public String regionreturn() {
 		return selectv.getAttribute("value");
+		
 	}
-	
+	*/
 	
 
 	public void textdescvfunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
@@ -383,6 +429,8 @@ private WebDriver driver;
 		this.textareav.sendKeys("hello bangalore textarea for next Villas");
 		}
 	
+	
+	
 
 	
 	
@@ -390,28 +438,45 @@ private WebDriver driver;
 	
 	public void checkboxfunc1() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
 	{
-		String regionxpathbefore="//*[contains(text(),' ";
+		System.out.println("function is called");
+		driver.switchTo().defaultContent();
+		
+		/*String regionxpathbefore="//*[contains(text(),' ";
 		String regionxpathafter="')]//input";
-		String regionxpath=regionxpathbefore+regionreturn()+regionxpathafter;
+		String regionxpath=regionxpathbefore+regionreturn()+regionxpathafter;*/
+		
+		//label[text()=' Commercial']
 		
 		//this.posttitlev.click();
 		Thread.sleep(6000);
+		
+		//parentRegion
+		
+		
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,300)");
 		/*JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,300)");*/
 		//this.checkb1.click();
-		driver.findElement(By.xpath(regionxpath)).click();
+		//driver.findElement(By.xpath(regionxpath)).click();
 		
+		driver.findElement(By.xpath(parentRegion())).click();//uncomment
 		}
-	
+	//static String childRegion; //uncomment
 	public void checkboxfunc2() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
 	{
+		//String childRegion=this.regionnamev.getAttribute("value");
 		//this.posttitlev.click();
 		Thread.sleep(6000);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,300)");
-		this.checkb2.click();
+		//this.checkb2.click();
+		String childregionxpathbefore="//label[text()=' ";//from uncomment
+		String childregionxpathafter="']";
+		String child=regiontitle();
+		String childregionxpath=childregionxpathbefore+child+childregionxpathafter;
+		
+		driver.findElement(By.xpath(childregionxpath)).click();//to uncomment
 		}
 	
 	
@@ -434,7 +499,52 @@ private WebDriver driver;
 		/*JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,100)");*/
 		this.viewrecl.click();
-		}
+	}
+	
+	//////////////////////////////////////
+	
+	public void featurenewvfunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		
+		Thread.sleep(3000);
+		this.featurenewv.click();
+	}
+	
+	
+	
+	
+	
+	
+	public void featuretitlefunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		
+		Thread.sleep(3000);
+		this.featuretagname.sendKeys("Introduce new feature title");
+	}
+	
+
+	public void featureslugfunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		
+		Thread.sleep(3000);
+		this.featureslug.sendKeys("Introduce new feature title slug");
+	}
+	
+
+	
+	public void featurtextareafunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		
+		Thread.sleep(3000);
+		this.featurtextarea.sendKeys("Introduce new feature  textarea");
+	}
+	
+	public void addfeaturesubmitfunc() throws InterruptedException//QUESTIONS FOR EVERY OPERATION LIKE CLICK LINK,CLICK LOGIN DO WE HAVE TO CREATE METHODS HERE
+	{
+		
+		Thread.sleep(3000);
+		this.addfeaturesubmit.click();
+	}
 	
 	
 }
